@@ -1,14 +1,11 @@
 'use strict';
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
-    sass = require('gulp-sass'),
-    plumber = require('gulp-plumber');
-
+    sass = require('gulp-sass');
 
 // uglify scripts
 gulp.task('scripts', function() {
     gulp.src('js/*.js')
-    	.pipe(plumber())
         .pipe(uglify())
         .pipe(gulp.dest('build/js'));
 });
@@ -21,7 +18,6 @@ gulp.task('watchScripts', function() {
 // styles
 gulp.task('styles', function() {
     return gulp.src('./sass/**/*.scss')
-    	.pipe(plumber())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(gulp.dest('build/css'));
 });
