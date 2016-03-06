@@ -15,4 +15,11 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
     console.log('runs styles');
 });
-gulp.task('default', ['scripts', 'styles']);
+
+// watches js
+gulp.task('watchScripts', function() {
+	gulp.watch('js/*.js', ['scripts']);
+});
+
+
+gulp.task('default', ['scripts', 'styles', 'watchScripts']);
